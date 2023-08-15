@@ -110,68 +110,7 @@ class _RefeicoesState extends State<Refeicoes> {
           child: ListView(
             children: [
               buildContainerNutri(),
-              buildContainerCafe(
-                  nomePacote: 'CAFÉ DA MANHÃ',
-                  i1: '1 copo (100ml) de vitamina de banana - 104 kcal',
-                  i2: '1 maçã (100g) - 52 kcal',
-                  i3: '10 un. de uva  - 40 kcal',
-                  i4: '1 pão integral com ovo  - 16,09 kcal',
-                  i5: 'Total de calorias consumidas com essa refeição: ',
-                  i9: '212,09 Kcal'
-              ),
-              buildContainerLM(
-                nomePacote: 'LANCHE DA MANHÃ',
-                i1: 'Iogurte natural com fruta - 277,56 kcal',
-                i2: '1 sanduíche natural. - 210 kcal',
-                i3: 'Total de calorias consumidas com essa refeição: ',
-                i9: '487,56 Kcal',
-
-              ),
-              buildContainerAlmoco(
-                nomePacote: 'ALMOÇO',
-                i1: '1 porção de 100g de feijão - 347 kcal',
-                i2: '1 porção de 100g de arroz - 130 kcal',
-                i3: '1 porção de 100g de macarrão - 371 kcal',
-                i4: '1 porção de 100g de carne de boi  - 250 kcal',
-                i5: '1 porção de salada de 73g - 12 kcal',
-                i6: '1 copo de suco natural de laranja - 120 kcal',
-                i7: 'Total de calorias consumidas com essa refeição: ',
-                i9: '1230 Kcal',
-              ),
-              buildContainerLT(
-                nomePacote: 'LANCHE DA TARDE',
-                i1: 'Pão de queijo (100g) - 408 kcal',
-                i2: '1 xícara de café - 29 kcal',
-                i3: 'Total de calorias consumidas com essa refeição: ',
-                i9: '437 Kcal',
-              ),
-              buildContainerJantar(
-                nomePacote: 'JANTAR',
-                i1: '1 porção de sopa de frango - 97,21 kcal',
-                i2: '1 copo de suco natural - 130 kcal',
-                i3: '1 porção de salada de 73g - 12 kcal',
-                i4: 'Total de calorias consumidas com essa refeição:',
-                i9: '239,21 Kcal',
-              ),
-              buildContainerLN(
-                nomePacote: 'LANCHE DA NOITE',
-                i1: '1 sanduíche natural. - 210 kcal',
-                i2: '1 copo de leite - 42 kcal',
-                i3: 'Total de calorias consumidas com essa refeição: ',
-                i9: '252 Kcal',
-              ),
-
-              buildContainerPlus(
-                  nomePacote: 'Gostou destas dicas?',
-                  i1: 'Que máximo! Clique no botão abaixo para ficar por dentro das receitas mais saudáveis atualmente!'
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
+              
 
 
                       ElevatedButton(
