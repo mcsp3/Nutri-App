@@ -10,6 +10,8 @@ class Refeicoes extends StatefulWidget {
 }
 
 class _RefeicoesState extends State<Refeicoes> {
+  Future<List<ItRefeicoes>> futureLista = RDao().findAll();
+  
   @override
   buildAppBar() {
     return AppBar(
