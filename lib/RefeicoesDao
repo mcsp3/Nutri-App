@@ -1,0 +1,37 @@
+import 'package:aula_913/domain/pacote_turistico.dart';
+
+class RefeicoesDao {
+  var listPacotes = const [
+    PacoteRefeicoes(
+      cidade: 'CANCÚN, MEX',
+      validade: 'De 01 Ago 2023 a 31 Dez 2024',
+      imagem:
+          'https://www.remessaonline.com.br/blog/wp-content/uploads/2022/06/praias-de-cancun-1170x780.jpg.optimal.jpg',
+      desconto: 46,
+      titulo: 'Pacote Cancún 2024',
+      desc: 'Aéreo + Hotel All inclusive',
+      numDiarias: 2,
+      numPessoas: 3,
+      precoAnterior: 6819,
+      precoatual: 3749,
+    ),
+    PacoteRefeicoes(
+      cidade: 'MARAGOGI, MEX',
+      validade: 'De 01 Ago 2023 a 31 Dez 2024',
+      imagem:
+          'https://upload.wikimedia.org/wikipedia/commons/b/b8/Gal%C3%A9s_de_maragogi.jpg',
+      desconto: 45,
+      titulo: 'Pacote Maragogi 2023 - 2024',
+      desc: 'Hotel All inclusive',
+      numDiarias: 10,
+      numPessoas: 2,
+      precoAnterior: 4500,
+      precoatual: 1489,
+    ),
+  ];
+
+  Future<List<PacoteRefeicoes>> findAll() async {
+    await Future.delayed(const Duration(seconds: 10));
+    return listPacotes;
+  }
+}
