@@ -111,22 +111,6 @@ class _RefeicoesState extends State<Refeicoes> {
             children: [
               buildContainerNutri(),
               
-
-
-                      ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.yellow),
-                      onPressed: () {},
-                      child: Text(
-                        'EU QUERO!',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-
-                        ),
-                      ),
-                    ),
                   ],
                 )
               ],
