@@ -20,7 +20,39 @@ class _RefeicoesState extends State<Refeicoes> {
       backgroundColor: Colors.green,
     );
   }
+ Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: ListView(
+        children: [
+          buildContainerRefeicoes(),
+          const SizedBox(height: 16),
+          FutureBuilder<List<ItRefeicoes>>(
+            future: futureLista,
+            builder: (context, snapshot) {
 
+
+              if (snapshot.hasData) {
+                var lista = snapshot.data!;
+                return ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: lista.length,
+                  itemBuilder: (context, index) {
+                    return CardPacoteRefeicoes(
+                      pacoteRefeicoes: lista[index],
+                    );
+                  },
+                );
+              }
+
+              return const Center(child: CircularProgressIndicator());
+            },
+          ),
+        ],
+      ),
+    );
+ }
   buildContainerNutri() {
     return Container(
       color: Colors.green,
@@ -141,417 +173,8 @@ class _RefeicoesState extends State<Refeicoes> {
   }
 
 
-  buildContainerCafe({String nomePacote = '', String i1 = '',
-    String i2 = '', String i3 = '', String i4 = '', String i5 = '', String i9 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
 
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://conteudo.imguol.com.br/c/entretenimento/f8/2017/02/09/cafe-da-manha-1486651269596_v2_4x3.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1,
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i2, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i3, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i4, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i5, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i9,
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange),
-                ),
-                SizedBox(height: 8),
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  buildContainerLM({String nomePacote = '', String i1 = '',
-    String i2 = '', String i3 = '', String i9 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://static1.casapraticaqualita.com.br/articles/3/17/83/@/2002-preparar-uma-salada-de-frutas-com-morang-article_content_img-4.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1,
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i2, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i3, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i9,
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange),
-                ),
-                SizedBox(height: 8),
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  buildContainerAlmoco({String nomePacote = '', String i1 = '',
-    String i2 = '', String i3 = '', String i4 = '', String i5 = '', String i9 = '', String i7 = '', String i6 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://www.maiscinco.com.br/wp-content/uploads/2021/03/delivery-de-almo%C3%A7o-em-goiania_capa-740x493.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i2, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i3, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i4, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i5, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i6, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i7, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i9,
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange),
-                ),
-                SizedBox(height: 8),
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  buildContainerLT({String nomePacote = '', String i1 = '',
-    String i2 = '', String i3 = '', String i9 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://www.valorcafe.com.br/wp-content/uploads/2020/12/receitas-que-combinam-com-cafe.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1,
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i2, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i3, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i9,
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange),
-                ),
-                SizedBox(height: 8),
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  buildContainerJantar({String nomePacote = '', String i1 = '',
-    String i2 = '', String i3 = '', String i4 = '', String i9 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://www.guiadasemana.com.br/contentFiles/system/pictures/2014/7/117277/cropped/jantar2.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1,
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i2, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i3, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i4, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i9,
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange),
-                ),
-                SizedBox(height: 8),
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  buildContainerLN({String nomePacote = '', String i1 = '',
-    String i2 = '', String i3 = '', String i9 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://st3.depositphotos.com/1000975/15892/i/450/depositphotos_158927142-stock-photo-man-at-the-fridge-eating.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1,
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i2, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i3, style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                Text(i9,
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange),
-                ),
-                SizedBox(height: 8),
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  buildContainerPlus({String nomePacote = '', String i1 = ''}) {
-    return Container(
-      margin: EdgeInsets.only(top: 16),
-      color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-
-
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(14)),
-
-                  child: Image.network(
-                    "https://img.freepik.com/fotos-premium/mulher-adulta-animada-apontando-os-dedos-para-baixo-e-sorrindo-olhando-para-o-banner-abaixo-mostrando-propaganda-encontrou-smth-de-pe-sobre-fundo-bege_1258-87208.jpg",
-                    height: 300,
-                    width: 370,
-                    fit: BoxFit.cover,
-                  ),
-
-                ),
-                SizedBox(height: 10),
-                Text(
-                  nomePacote,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-
-                Text(i1,
-                    style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-
-                SizedBox(height: 8),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
+                      ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.yellow),
                       onPressed: () {},
