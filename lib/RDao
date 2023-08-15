@@ -1,6 +1,6 @@
 import 'package:aula_913/domain/pacote_turistico.dart';
 
-class RefeicoesDao {
+class RDao {
   var listPacotes = const [
     PacoteRefeicoes(
       cidade: 'CANCÚN, MEX',
